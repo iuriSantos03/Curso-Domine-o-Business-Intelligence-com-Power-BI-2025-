@@ -1,0 +1,26 @@
+    
+
+ let
+    
+    // Primeiro precisamos obter a data mínima e máxima de cada tabela
+  
+    // Vamos Substituir Coluna pelo nome real e a Plan1 também
+
+    MinTabela1 = List.Min(fVenda[data_venda]),  
+ 
+    MaxTabela1 = List.Max(fVenda[data_venda]),
+  
+    
+    // Vamos Substituir Coluna pelo nome real e a Plan1 também
+
+    // Vamos determinar a data de início e fim do calendário
+    DataInicio = List.Min({MinTabela1}),
+    DataFim = List.Max({MaxTabela1}),
+
+    // Criar lista de datas do período
+    QuantidadeDias = Duration.Days(DataFim - DataInicio) + 1,
+    ListaDatas = List.Dates(DataInicio, QuantidadeDias, #duration(1,0,0,0))
+
+in
+
+   ListaDatas
